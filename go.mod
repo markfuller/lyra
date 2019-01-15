@@ -11,6 +11,7 @@ require (
 	github.com/lyraproj/issue v0.0.0-20181208172701-8d203563a8dc
 	github.com/lyraproj/puppet-evaluator v0.0.0-20190114104021-a0233aa3f992
 	github.com/lyraproj/puppet-workflow v0.0.0-20181219154027-66b46934b0c2
+	github.com/lyraproj/semver v0.0.0-20181213164306-02ecea2cd6a2
 	github.com/lyraproj/servicesdk v0.0.0-20190114115155-827c6a18cad5
 	github.com/lyraproj/wfe v0.0.0-20190114115238-35b40418038c
 	github.com/mattn/go-colorable v0.0.9 // indirect

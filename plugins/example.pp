@@ -13,6 +13,12 @@ type Example::Person = {
   }
 }
 
+type Example::Three = {
+  attributes => {
+    name => { type=>String, value=>'' },
+  }
+}
+
 workflow sample {
   typespace => 'example',
   output => (
