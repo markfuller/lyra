@@ -98,6 +98,10 @@ func ExampleServer() {
 	//         'address' => {
 	//           'type' => Optional[Address],
 	//           'value' => undef
+	//         },
+	//         'created' => {
+	//           'type' => Optional[Timestamp],
+	//           'value' => undef
 	//         }
 	//       }
 	//     },

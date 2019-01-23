@@ -2,6 +2,7 @@ package resource
 
 import (
 	"github.com/hashicorp/go-hclog"
+	"time"
 )
 
 // Person represents a human
@@ -10,6 +11,7 @@ type Person struct {
 	Age     int64    `puppet:"type=>Integer, value=>0"`
 	Human   bool     `puppet:"type=>Boolean, value=>false"`
 	Address *Address `puppet:"type=>Optional[Example::Address], value=>undef"`
+	Created *time.Time
 }
 
 // Address type
