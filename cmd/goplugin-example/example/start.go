@@ -11,25 +11,28 @@ import (
 // Start the example plugin running
 func Start() {
 	eval.Puppet.Do(func(c eval.Context) {
-		sb := service.NewServerBuilder(c, `Example`)
-		evs := sb.RegisterTypes("Example",
-			resource.Person{},
-			resource.Address{})
-		sb.RegisterHandler("Example::PersonHandler", &resource.PersonHandler{}, evs[0])
-
-		sb.RegisterTypes("Example",
-			sb.BuildResource(&resource.OwnerRes{}, func(rtb service.ResourceTypeBuilder) {
-				rtb.ProvidedAttributes(`id`)
-				rtb.AddRelationship(`mine`, `Example::ContainedRes`, annotation.KindContained, annotation.CardinalityMany, ``, []string{`id`, `owner_id`})
-			}),
-			sb.BuildResource(&resource.ContainedRes{}, func(rtb service.ResourceTypeBuilder) {
-				rtb.ProvidedAttributes(`id`)
-				rtb.AddRelationship(`owner`, `Example::OwnerRes`, annotation.KindContainer, annotation.CardinalityOne, ``, []string{`owner_id`, `id`})
-			}),
-		)
-
-		s := sb.Server()
-
+		s := Server(c)
 		grpc.Serve(c, s)
 	})
+}
+
+//Server returns a ServerBuilder bound to the passed context with types registered
+func Server(c eval.Context) *service.Server {
+	sb := service.NewServerBuilder(c, `Example`)
+	evs := sb.RegisterTypes("Example",
+		resource.Person{},
+		resource.Address{})
+	sb.RegisterHandler("Example::PersonHandler", &resource.PersonHandler{}, evs[0])
+
+	sb.RegisterTypes("Example",
+		sb.BuildResource(&resource.OwnerRes{}, func(rtb service.ResourceTypeBuilder) {
+			rtb.ProvidedAttributes(`id`)
+			rtb.AddRelationship(`mine`, `Example::ContainedRes`, annotation.KindContained, annotation.CardinalityMany, ``, []string{`id`, `owner_id`})
+		}),
+		sb.BuildResource(&resource.ContainedRes{}, func(rtb service.ResourceTypeBuilder) {
+			rtb.ProvidedAttributes(`id`)
+			rtb.AddRelationship(`owner`, `Example::OwnerRes`, annotation.KindContainer, annotation.CardinalityOne, ``, []string{`owner_id`, `id`})
+		}),
+	)
+	return sb.Server()
 }
