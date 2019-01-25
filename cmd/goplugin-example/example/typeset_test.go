@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"github.com/lyraproj/puppet-evaluator/eval"
 	"github.com/lyraproj/servicesdk/service"
+	"time"
 
 	// Initialize pcore
 	_ "github.com/lyraproj/puppet-evaluator/pcore"
@@ -23,7 +24,8 @@ func Example_typeSetChecker() {
 	//   types => {
 	//     Bar => {
 	//       attributes => {
-	//         'abc' => String
+	//         'abc' => String,
+	//         'the_time' => Timestamp
 	//       }
 	//     },
 	//     Baz => {
@@ -65,14 +67,11 @@ type Foo struct {
 	BarPointers []*Bar //Array[Optional] instead of Array[Optional[Bar]]
 	BazPointers []*Baz //Array[Baz] instead of Array[Optional[Baz]]
 	Bazs        []Baz
-
-	//uncommenting either of these lines will cause BarPointers to be Array[Baz]
-	// MandatoryBar Bar
-	// OptionalBar  *Bar
 }
 
 type Bar struct {
-	Abc string
+	Abc     string
+	TheTime time.Time
 }
 
 type Baz struct {
