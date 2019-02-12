@@ -1,6 +1,6 @@
 # this file is called aaws.pp so that it is processed before attach.pp as it contains types that are needed by the attach workflow
 # the content of this file can be generated, ref TestGeneratePuppetTypes in register_types_test.go
-type Aws = TypeSet[{
+        type Aws = TypeSet[{
           pcore_uri => 'http://puppet.com/2016.1/pcore',
           pcore_version => '1.0.0',
           name_authority => 'http://puppet.com/2016.1/runtime',
@@ -9,7 +9,7 @@ type Aws = TypeSet[{
           types => {
             BlockDeviceMapping => {
               attributes => {
-                'device_name' => {
+                'deviceName' => {
                   'type' => String,
                   'value' => ''
                 },
@@ -17,11 +17,11 @@ type Aws = TypeSet[{
                   'type' => Optional[EbsBlockDevice],
                   'value' => undef
                 },
-                'no_device' => {
+                'noDevice' => {
                   'type' => String,
                   'value' => ''
                 },
-                'virtual_name' => {
+                'virtualName' => {
                   'type' => String,
                   'value' => ''
                 }
@@ -29,11 +29,11 @@ type Aws = TypeSet[{
             },
             CpuOptions => {
               attributes => {
-                'core_count' => {
+                'coreCount' => {
                   'type' => Integer,
                   'value' => 0
                 },
-                'threads_per_core' => {
+                'threadsPerCore' => {
                   'type' => Integer,
                   'value' => 0
                 }
@@ -41,7 +41,7 @@ type Aws = TypeSet[{
             },
             EbsBlockDevice => {
               attributes => {
-                'delete_on_termination' => {
+                'deleteOnTermination' => {
                   'type' => Boolean,
                   'value' => false
                 },
@@ -53,19 +53,19 @@ type Aws = TypeSet[{
                   'type' => Integer,
                   'value' => 0
                 },
-                'kms_key_id' => {
+                'kmsKeyId' => {
                   'type' => String,
                   'value' => ''
                 },
-                'snapshot_id' => {
+                'snapshotId' => {
                   'type' => String,
                   'value' => ''
                 },
-                'volume_size' => {
+                'volumeSize' => {
                   'type' => Integer,
                   'value' => 0
                 },
-                'volume_type' => {
+                'volumeType' => {
                   'type' => String,
                   'value' => ''
                 }
@@ -73,11 +73,11 @@ type Aws = TypeSet[{
             },
             GroupIdentifier => {
               attributes => {
-                'group_id' => {
+                'groupId' => {
                   'type' => String,
                   'value' => ''
                 },
-                'group_name' => {
+                'groupName' => {
                   'type' => String,
                   'value' => ''
                 }
@@ -105,8 +105,8 @@ type Aws = TypeSet[{
                   'type' => Optional[String],
                   'value' => undef
                 },
-                'role_name' => String,
-                'assume_role_policy_document' => String,
+                'roleName' => String,
+                'assumeRolePolicyDocument' => String,
                 'path' => {
                   'type' => Optional[String],
                   'value' => undef
@@ -116,62 +116,62 @@ type Aws = TypeSet[{
             },
             Instance => {
               attributes => {
-                'additional_info' => {
+                'additionalInfo' => {
                   'type' => String,
                   'value' => ''
                 },
-                'block_device_mappings' => {
+                'blockDeviceMappings' => {
                   'type' => Array[BlockDeviceMapping],
                   'value' => []
                 },
-                'client_token' => {
+                'clientToken' => {
                   'type' => String,
                   'value' => ''
                 },
-                'cpu_options' => {
+                'cpuOptions' => {
                   'type' => Optional[CpuOptions],
                   'value' => undef
                 },
-                'disable_api_termination' => {
+                'disableApiTermination' => {
                   'type' => Boolean,
                   'value' => false
                 },
-                'ebs_optimized' => {
+                'ebsOptimized' => {
                   'type' => Boolean,
                   'value' => false
                 },
-                'iam_instance_profile' => {
+                'iamInstanceProfile' => {
                   'type' => Optional[IamInstanceProfile],
                   'value' => undef
                 },
-                'image_id' => String,
-                'instance_initiated_shutdown_behavior' => {
+                'imageId' => String,
+                'instanceInitiatedShutdownBehavior' => {
                   'type' => String,
                   'value' => ''
                 },
-                'instance_type' => String,
-                'ipv6_address_count' => {
+                'instanceType' => String,
+                'ipv6AddressCount' => {
                   'type' => Integer,
                   'value' => 0
                 },
-                'ipv6_addresses' => {
+                'ipv6Addresses' => {
                   'type' => Array[InstanceIpv6Address],
                   'value' => []
                 },
-                'kernel_id' => {
+                'kernelId' => {
                   'type' => String,
                   'value' => ''
                 },
-                'key_name' => {
+                'keyName' => {
                   'type' => String,
                   'value' => ''
                 },
-                'launch_template' => {
+                'launchTemplate' => {
                   'type' => Optional[LaunchTemplateSpecification],
                   'value' => undef
                 },
-                'max_count' => Integer,
-                'min_count' => Integer,
+                'maxCount' => Integer,
+                'minCount' => Integer,
                 'monitoring' => {
                   'type' => Optional[Monitoring],
                   'value' => undef
@@ -180,35 +180,35 @@ type Aws = TypeSet[{
                   'type' => Optional[Placement],
                   'value' => undef
                 },
-                'private_ip_address' => {
+                'privateIpAddress' => {
                   'type' => String,
                   'value' => ''
                 },
-                'ramdisk_id' => {
+                'ramdiskId' => {
                   'type' => String,
                   'value' => ''
                 },
-                'subnet_id' => {
+                'subnetId' => {
                   'type' => String,
                   'value' => ''
                 },
-                'user_data' => {
+                'userData' => {
                   'type' => String,
                   'value' => ''
                 },
-                'owner_id' => {
+                'ownerId' => {
                   'type' => String,
                   'value' => ''
                 },
-                'requester_id' => {
+                'requesterId' => {
                   'type' => String,
                   'value' => ''
                 },
-                'reservation_id' => {
+                'reservationId' => {
                   'type' => String,
                   'value' => ''
                 },
-                'ami_launch_index' => {
+                'amiLaunchIndex' => {
                   'type' => Integer,
                   'value' => 0
                 },
@@ -216,7 +216,7 @@ type Aws = TypeSet[{
                   'type' => String,
                   'value' => ''
                 },
-                'ena_support' => {
+                'enaSupport' => {
                   'type' => Boolean,
                   'value' => false
                 },
@@ -224,11 +224,11 @@ type Aws = TypeSet[{
                   'type' => String,
                   'value' => ''
                 },
-                'instance_id' => {
+                'instanceId' => {
                   'type' => String,
                   'value' => ''
                 },
-                'instance_lifecycle' => {
+                'instanceLifecycle' => {
                   'type' => String,
                   'value' => ''
                 },
@@ -236,47 +236,47 @@ type Aws = TypeSet[{
                   'type' => String,
                   'value' => ''
                 },
-                'private_dns_name' => {
+                'privateDnsName' => {
                   'type' => String,
                   'value' => ''
                 },
-                'product_codes' => {
+                'productCodes' => {
                   'type' => Array[ProductCode],
                   'value' => []
                 },
-                'public_dns_name' => {
+                'publicDnsName' => {
                   'type' => String,
                   'value' => ''
                 },
-                'public_ip_address' => {
+                'publicIpAddress' => {
                   'type' => String,
                   'value' => ''
                 },
-                'ram_disk_id' => {
+                'ramDiskId' => {
                   'type' => String,
                   'value' => ''
                 },
-                'root_device_name' => {
+                'rootDeviceName' => {
                   'type' => String,
                   'value' => ''
                 },
-                'root_device_type' => {
+                'rootDeviceType' => {
                   'type' => String,
                   'value' => ''
                 },
-                'security_groups' => {
+                'securityGroups' => {
                   'type' => Array[GroupIdentifier],
                   'value' => []
                 },
-                'source_dest_check' => {
+                'sourceDestCheck' => {
                   'type' => Boolean,
                   'value' => false
                 },
-                'spot_instance_request_id' => {
+                'spotInstanceRequestId' => {
                   'type' => String,
                   'value' => ''
                 },
-                'sriov_net_support' => {
+                'sriovNetSupport' => {
                   'type' => String,
                   'value' => ''
                 },
@@ -284,11 +284,11 @@ type Aws = TypeSet[{
                   'type' => Optional[InstanceState],
                   'value' => undef
                 },
-                'state_reason' => {
+                'stateReason' => {
                   'type' => Optional[StateReason],
                   'value' => undef
                 },
-                'state_transition_reason' => {
+                'stateTransitionReason' => {
                   'type' => String,
                   'value' => ''
                 },
@@ -296,11 +296,11 @@ type Aws = TypeSet[{
                   'type' => Optional[Hash[String, String]],
                   'kind' => 'given_or_derived'
                 },
-                'virtualization_type' => {
+                'virtualizationType' => {
                   'type' => String,
                   'value' => ''
                 },
-                'vpc_id' => {
+                'vpcId' => {
                   'type' => String,
                   'value' => ''
                 }
@@ -319,7 +319,7 @@ type Aws = TypeSet[{
             },
             InstanceIpv6Address => {
               attributes => {
-                'ipv6_address' => {
+                'ipv6Address' => {
                   'type' => String,
                   'value' => ''
                 }
@@ -340,12 +340,12 @@ type Aws = TypeSet[{
             InternetGateway => {
               annotations => {
                 Lyra::Resource => {
-                  'immutable_attributes' => ['tags'],
-                  'provided_attributes' => ['internet_gateway_id']
+                  'immutableAttributes' => ['tags'],
+                  'providedAttributes' => ['internetGatewayId']
                 }
               },
               attributes => {
-                'internet_gateway_id' => {
+                'internetGatewayId' => {
                   'type' => Optional[String],
                   'value' => undef
                 },
@@ -359,7 +359,7 @@ type Aws = TypeSet[{
             InternetGatewayAttachment => {
               attributes => {
                 'state' => String,
-                'vpc_id' => String
+                'vpcId' => String
               }
             },
             InternetGatewayHandler => {
@@ -375,31 +375,31 @@ type Aws = TypeSet[{
             },
             IpPermission => {
               attributes => {
-                'from_port' => {
+                'fromPort' => {
                   'type' => Integer,
                   'value' => 0
                 },
-                'ip_protocol' => {
+                'ipProtocol' => {
                   'type' => String,
                   'value' => ''
                 },
-                'ip_ranges' => {
+                'ipRanges' => {
                   'type' => Array[IpRange],
                   'value' => []
                 },
-                'ipv6_ranges' => {
+                'ipv6Ranges' => {
                   'type' => Array[Ipv6Range],
                   'value' => []
                 },
-                'prefix_list_ids' => {
+                'prefixListIds' => {
                   'type' => Array[PrefixListId],
                   'value' => []
                 },
-                'to_port' => {
+                'toPort' => {
                   'type' => Integer,
                   'value' => 0
                 },
-                'user_id_group_pairs' => {
+                'userIdGroupPairs' => {
                   'type' => Array[UserIdGroupPair],
                   'value' => []
                 }
@@ -407,7 +407,7 @@ type Aws = TypeSet[{
             },
             IpRange => {
               attributes => {
-                'cidr_ip' => {
+                'cidrIp' => {
                   'type' => String,
                   'value' => ''
                 },
@@ -419,7 +419,7 @@ type Aws = TypeSet[{
             },
             Ipv6Range => {
               attributes => {
-                'cidr_ipv6' => {
+                'cidrIpv6' => {
                   'type' => String,
                   'value' => ''
                 },
@@ -431,9 +431,9 @@ type Aws = TypeSet[{
             },
             KeyPair => {
               attributes => {
-                'public_key_material' => String,
-                'key_name' => String,
-                'key_fingerprint' => {
+                'publicKeyMaterial' => String,
+                'keyName' => String,
+                'keyFingerprint' => {
                   'type' => String,
                   'value' => ''
                 }
@@ -452,11 +452,11 @@ type Aws = TypeSet[{
             },
             LaunchTemplateSpecification => {
               attributes => {
-                'launch_template_id' => {
+                'launchTemplateId' => {
                   'type' => String,
                   'value' => ''
                 },
-                'launch_template_name' => {
+                'launchTemplateName' => {
                   'type' => String,
                   'value' => ''
                 },
@@ -487,17 +487,17 @@ type Aws = TypeSet[{
               types => {
                 CapacityReservationSpecificationResponse => {
                   attributes => {
-                    'capacity_reservation_preference' => {
+                    'capacityReservationPreference' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'capacity_reservation_target' => {
+                    'capacityReservationTarget' => {
                       'type' => Optional[CapacityReservationTargetResponse],
                       'value' => undef
                     }
                   },
                   functions => {
-                    'go_string' => Callable[
+                    'goString' => Callable[
                       [0, 0],
                       String],
                     'string' => Callable[
@@ -507,13 +507,13 @@ type Aws = TypeSet[{
                 },
                 CapacityReservationTargetResponse => {
                   attributes => {
-                    'capacity_reservation_id' => {
+                    'capacityReservationId' => {
                       'type' => Optional[String],
                       'value' => undef
                     }
                   },
                   functions => {
-                    'go_string' => Callable[
+                    'goString' => Callable[
                       [0, 0],
                       String],
                     'string' => Callable[
@@ -523,17 +523,17 @@ type Aws = TypeSet[{
                 },
                 CpuOptions => {
                   attributes => {
-                    'core_count' => {
+                    'coreCount' => {
                       'type' => Optional[Integer],
                       'value' => undef
                     },
-                    'threads_per_core' => {
+                    'threadsPerCore' => {
                       'type' => Optional[Integer],
                       'value' => undef
                     }
                   },
                   functions => {
-                    'go_string' => Callable[
+                    'goString' => Callable[
                       [0, 0],
                       String],
                     'string' => Callable[
@@ -543,11 +543,11 @@ type Aws = TypeSet[{
                 },
                 EbsInstanceBlockDevice => {
                   attributes => {
-                    'attach_time' => {
+                    'attachTime' => {
                       'type' => Optional[Timestamp],
                       'value' => undef
                     },
-                    'delete_on_termination' => {
+                    'deleteOnTermination' => {
                       'type' => Optional[Boolean],
                       'value' => undef
                     },
@@ -555,13 +555,13 @@ type Aws = TypeSet[{
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'volume_id' => {
+                    'volumeId' => {
                       'type' => Optional[String],
                       'value' => undef
                     }
                   },
                   functions => {
-                    'go_string' => Callable[
+                    'goString' => Callable[
                       [0, 0],
                       String],
                     'string' => Callable[
@@ -571,25 +571,25 @@ type Aws = TypeSet[{
                 },
                 ElasticGpuAssociation => {
                   attributes => {
-                    'elastic_gpu_association_id' => {
+                    'elasticGpuAssociationId' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'elastic_gpu_association_state' => {
+                    'elasticGpuAssociationState' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'elastic_gpu_association_time' => {
+                    'elasticGpuAssociationTime' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'elastic_gpu_id' => {
+                    'elasticGpuId' => {
                       'type' => Optional[String],
                       'value' => undef
                     }
                   },
                   functions => {
-                    'go_string' => Callable[
+                    'goString' => Callable[
                       [0, 0],
                       String],
                     'string' => Callable[
@@ -599,25 +599,25 @@ type Aws = TypeSet[{
                 },
                 ElasticInferenceAcceleratorAssociation => {
                   attributes => {
-                    'elastic_inference_accelerator_arn' => {
+                    'elasticInferenceAcceleratorArn' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'elastic_inference_accelerator_association_id' => {
+                    'elasticInferenceAcceleratorAssociationId' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'elastic_inference_accelerator_association_state' => {
+                    'elasticInferenceAcceleratorAssociationState' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'elastic_inference_accelerator_association_time' => {
+                    'elasticInferenceAcceleratorAssociationTime' => {
                       'type' => Optional[Timestamp],
                       'value' => undef
                     }
                   },
                   functions => {
-                    'go_string' => Callable[
+                    'goString' => Callable[
                       [0, 0],
                       String],
                     'string' => Callable[
@@ -627,17 +627,17 @@ type Aws = TypeSet[{
                 },
                 GroupIdentifier => {
                   attributes => {
-                    'group_id' => {
+                    'groupId' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'group_name' => {
+                    'groupName' => {
                       'type' => Optional[String],
                       'value' => undef
                     }
                   },
                   functions => {
-                    'go_string' => Callable[
+                    'goString' => Callable[
                       [0, 0],
                       String],
                     'string' => Callable[
@@ -653,7 +653,7 @@ type Aws = TypeSet[{
                     }
                   },
                   functions => {
-                    'go_string' => Callable[
+                    'goString' => Callable[
                       [0, 0],
                       String],
                     'string' => Callable[
@@ -673,7 +673,7 @@ type Aws = TypeSet[{
                     }
                   },
                   functions => {
-                    'go_string' => Callable[
+                    'goString' => Callable[
                       [0, 0],
                       String],
                     'string' => Callable[
@@ -683,7 +683,7 @@ type Aws = TypeSet[{
                 },
                 Instance => {
                   attributes => {
-                    'ami_launch_index' => {
+                    'amiLaunchIndex' => {
                       'type' => Optional[Integer],
                       'value' => undef
                     },
@@ -691,34 +691,34 @@ type Aws = TypeSet[{
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'block_device_mappings' => Array[Optional[InstanceBlockDeviceMapping]],
-                    'capacity_reservation_id' => {
+                    'blockDeviceMappings' => Array[Optional[InstanceBlockDeviceMapping]],
+                    'capacityReservationId' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'capacity_reservation_specification' => {
+                    'capacityReservationSpecification' => {
                       'type' => Optional[CapacityReservationSpecificationResponse],
                       'value' => undef
                     },
-                    'client_token' => {
+                    'clientToken' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'cpu_options' => {
+                    'cpuOptions' => {
                       'type' => Optional[CpuOptions],
                       'value' => undef
                     },
-                    'ebs_optimized' => {
+                    'ebsOptimized' => {
                       'type' => Optional[Boolean],
                       'value' => undef
                     },
-                    'elastic_gpu_associations' => Array[Optional[ElasticGpuAssociation]],
-                    'elastic_inference_accelerator_associations' => Array[Optional[ElasticInferenceAcceleratorAssociation]],
-                    'ena_support' => {
+                    'elasticGpuAssociations' => Array[Optional[ElasticGpuAssociation]],
+                    'elasticInferenceAcceleratorAssociations' => Array[Optional[ElasticInferenceAcceleratorAssociation]],
+                    'enaSupport' => {
                       'type' => Optional[Boolean],
                       'value' => undef
                     },
-                    'hibernation_options' => {
+                    'hibernationOptions' => {
                       'type' => Optional[HibernationOptions],
                       'value' => undef
                     },
@@ -726,35 +726,35 @@ type Aws = TypeSet[{
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'iam_instance_profile' => {
+                    'iamInstanceProfile' => {
                       'type' => Optional[IamInstanceProfile],
                       'value' => undef
                     },
-                    'image_id' => {
+                    'imageId' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'instance_id' => {
+                    'instanceId' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'instance_lifecycle' => {
+                    'instanceLifecycle' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'instance_type' => {
+                    'instanceType' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'kernel_id' => {
+                    'kernelId' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'key_name' => {
+                    'keyName' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'launch_time' => {
+                    'launchTime' => {
                       'type' => Optional[Timestamp],
                       'value' => undef
                     },
@@ -763,7 +763,7 @@ type Aws = TypeSet[{
                       'type' => Optional[Monitoring],
                       'value' => undef
                     },
-                    'network_interfaces' => Array[Optional[InstanceNetworkInterface]],
+                    'networkInterfaces' => Array[Optional[InstanceNetworkInterface]],
                     'placement' => {
                       'type' => Optional[Placement],
                       'value' => undef
@@ -772,45 +772,45 @@ type Aws = TypeSet[{
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'private_dns_name' => {
+                    'privateDnsName' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'private_ip_address' => {
+                    'privateIpAddress' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'product_codes' => Array[Optional[ProductCode]],
-                    'public_dns_name' => {
+                    'productCodes' => Array[Optional[ProductCode]],
+                    'publicDnsName' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'public_ip_address' => {
+                    'publicIpAddress' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'ramdisk_id' => {
+                    'ramdiskId' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'root_device_name' => {
+                    'rootDeviceName' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'root_device_type' => {
+                    'rootDeviceType' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'security_groups' => Array[Optional[GroupIdentifier]],
-                    'source_dest_check' => {
+                    'securityGroups' => Array[Optional[GroupIdentifier]],
+                    'sourceDestCheck' => {
                       'type' => Optional[Boolean],
                       'value' => undef
                     },
-                    'spot_instance_request_id' => {
+                    'spotInstanceRequestId' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'sriov_net_support' => {
+                    'sriovNetSupport' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
@@ -818,30 +818,30 @@ type Aws = TypeSet[{
                       'type' => Optional[InstanceState],
                       'value' => undef
                     },
-                    'state_reason' => {
+                    'stateReason' => {
                       'type' => Optional[StateReason],
                       'value' => undef
                     },
-                    'state_transition_reason' => {
+                    'stateTransitionReason' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'subnet_id' => {
+                    'subnetId' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
                     'tags' => Array[Optional[Tag]],
-                    'virtualization_type' => {
+                    'virtualizationType' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'vpc_id' => {
+                    'vpcId' => {
                       'type' => Optional[String],
                       'value' => undef
                     }
                   },
                   functions => {
-                    'go_string' => Callable[
+                    'goString' => Callable[
                       [0, 0],
                       String],
                     'string' => Callable[
@@ -851,7 +851,7 @@ type Aws = TypeSet[{
                 },
                 InstanceBlockDeviceMapping => {
                   attributes => {
-                    'device_name' => {
+                    'deviceName' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
@@ -861,7 +861,7 @@ type Aws = TypeSet[{
                     }
                   },
                   functions => {
-                    'go_string' => Callable[
+                    'goString' => Callable[
                       [0, 0],
                       String],
                     'string' => Callable[
@@ -871,13 +871,13 @@ type Aws = TypeSet[{
                 },
                 InstanceIpv6Address => {
                   attributes => {
-                    'ipv6_address' => {
+                    'ipv6Address' => {
                       'type' => Optional[String],
                       'value' => undef
                     }
                   },
                   functions => {
-                    'go_string' => Callable[
+                    'goString' => Callable[
                       [0, 0],
                       String],
                     'string' => Callable[
@@ -900,29 +900,29 @@ type Aws = TypeSet[{
                       'value' => undef
                     },
                     'groups' => Array[Optional[GroupIdentifier]],
-                    'ipv6_addresses' => Array[Optional[InstanceIpv6Address]],
-                    'mac_address' => {
+                    'ipv6Addresses' => Array[Optional[InstanceIpv6Address]],
+                    'macAddress' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'network_interface_id' => {
+                    'networkInterfaceId' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'owner_id' => {
+                    'ownerId' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'private_dns_name' => {
+                    'privateDnsName' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'private_ip_address' => {
+                    'privateIpAddress' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'private_ip_addresses' => Array[Optional[InstancePrivateIpAddress]],
-                    'source_dest_check' => {
+                    'privateIpAddresses' => Array[Optional[InstancePrivateIpAddress]],
+                    'sourceDestCheck' => {
                       'type' => Optional[Boolean],
                       'value' => undef
                     },
@@ -930,17 +930,17 @@ type Aws = TypeSet[{
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'subnet_id' => {
+                    'subnetId' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'vpc_id' => {
+                    'vpcId' => {
                       'type' => Optional[String],
                       'value' => undef
                     }
                   },
                   functions => {
-                    'go_string' => Callable[
+                    'goString' => Callable[
                       [0, 0],
                       String],
                     'string' => Callable[
@@ -950,21 +950,21 @@ type Aws = TypeSet[{
                 },
                 InstanceNetworkInterfaceAssociation => {
                   attributes => {
-                    'ip_owner_id' => {
+                    'ipOwnerId' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'public_dns_name' => {
+                    'publicDnsName' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'public_ip' => {
+                    'publicIp' => {
                       'type' => Optional[String],
                       'value' => undef
                     }
                   },
                   functions => {
-                    'go_string' => Callable[
+                    'goString' => Callable[
                       [0, 0],
                       String],
                     'string' => Callable[
@@ -974,19 +974,19 @@ type Aws = TypeSet[{
                 },
                 InstanceNetworkInterfaceAttachment => {
                   attributes => {
-                    'attach_time' => {
+                    'attachTime' => {
                       'type' => Optional[Timestamp],
                       'value' => undef
                     },
-                    'attachment_id' => {
+                    'attachmentId' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'delete_on_termination' => {
+                    'deleteOnTermination' => {
                       'type' => Optional[Boolean],
                       'value' => undef
                     },
-                    'device_index' => {
+                    'deviceIndex' => {
                       'type' => Optional[Integer],
                       'value' => undef
                     },
@@ -996,7 +996,7 @@ type Aws = TypeSet[{
                     }
                   },
                   functions => {
-                    'go_string' => Callable[
+                    'goString' => Callable[
                       [0, 0],
                       String],
                     'string' => Callable[
@@ -1014,17 +1014,17 @@ type Aws = TypeSet[{
                       'type' => Optional[Boolean],
                       'value' => undef
                     },
-                    'private_dns_name' => {
+                    'privateDnsName' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'private_ip_address' => {
+                    'privateIpAddress' => {
                       'type' => Optional[String],
                       'value' => undef
                     }
                   },
                   functions => {
-                    'go_string' => Callable[
+                    'goString' => Callable[
                       [0, 0],
                       String],
                     'string' => Callable[
@@ -1044,7 +1044,7 @@ type Aws = TypeSet[{
                     }
                   },
                   functions => {
-                    'go_string' => Callable[
+                    'goString' => Callable[
                       [0, 0],
                       String],
                     'string' => Callable[
@@ -1055,18 +1055,18 @@ type Aws = TypeSet[{
                 InternetGateway => {
                   attributes => {
                     'attachments' => Array[Optional[InternetGatewayAttachment]],
-                    'internet_gateway_id' => {
+                    'internetGatewayId' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'owner_id' => {
+                    'ownerId' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
                     'tags' => Array[Optional[Tag]]
                   },
                   functions => {
-                    'go_string' => Callable[
+                    'goString' => Callable[
                       [0, 0],
                       String],
                     'string' => Callable[
@@ -1080,13 +1080,13 @@ type Aws = TypeSet[{
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'vpc_id' => {
+                    'vpcId' => {
                       'type' => Optional[String],
                       'value' => undef
                     }
                   },
                   functions => {
-                    'go_string' => Callable[
+                    'goString' => Callable[
                       [0, 0],
                       String],
                     'string' => Callable[
@@ -1096,25 +1096,25 @@ type Aws = TypeSet[{
                 },
                 IpPermission => {
                   attributes => {
-                    'from_port' => {
+                    'fromPort' => {
                       'type' => Optional[Integer],
                       'value' => undef
                     },
-                    'ip_protocol' => {
+                    'ipProtocol' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'ip_ranges' => Array[Optional[IpRange]],
-                    'ipv6_ranges' => Array[Optional[Ipv6Range]],
-                    'prefix_list_ids' => Array[Optional[PrefixListId]],
-                    'to_port' => {
+                    'ipRanges' => Array[Optional[IpRange]],
+                    'ipv6Ranges' => Array[Optional[Ipv6Range]],
+                    'prefixListIds' => Array[Optional[PrefixListId]],
+                    'toPort' => {
                       'type' => Optional[Integer],
                       'value' => undef
                     },
-                    'user_id_group_pairs' => Array[Optional[UserIdGroupPair]]
+                    'userIdGroupPairs' => Array[Optional[UserIdGroupPair]]
                   },
                   functions => {
-                    'go_string' => Callable[
+                    'goString' => Callable[
                       [0, 0],
                       String],
                     'string' => Callable[
@@ -1124,7 +1124,7 @@ type Aws = TypeSet[{
                 },
                 IpRange => {
                   attributes => {
-                    'cidr_ip' => {
+                    'cidrIp' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
@@ -1134,7 +1134,7 @@ type Aws = TypeSet[{
                     }
                   },
                   functions => {
-                    'go_string' => Callable[
+                    'goString' => Callable[
                       [0, 0],
                       String],
                     'string' => Callable[
@@ -1144,7 +1144,7 @@ type Aws = TypeSet[{
                 },
                 Ipv6Range => {
                   attributes => {
-                    'cidr_ipv6' => {
+                    'cidrIpv6' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
@@ -1154,7 +1154,7 @@ type Aws = TypeSet[{
                     }
                   },
                   functions => {
-                    'go_string' => Callable[
+                    'goString' => Callable[
                       [0, 0],
                       String],
                     'string' => Callable[
@@ -1164,13 +1164,13 @@ type Aws = TypeSet[{
                 },
                 LicenseConfiguration => {
                   attributes => {
-                    'license_configuration_arn' => {
+                    'licenseConfigurationArn' => {
                       'type' => Optional[String],
                       'value' => undef
                     }
                   },
                   functions => {
-                    'go_string' => Callable[
+                    'goString' => Callable[
                       [0, 0],
                       String],
                     'string' => Callable[
@@ -1186,7 +1186,7 @@ type Aws = TypeSet[{
                     }
                   },
                   functions => {
-                    'go_string' => Callable[
+                    'goString' => Callable[
                       [0, 0],
                       String],
                     'string' => Callable[
@@ -1200,23 +1200,23 @@ type Aws = TypeSet[{
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'availability_zone' => {
+                    'availabilityZone' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'group_name' => {
+                    'groupName' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'host_id' => {
+                    'hostId' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'partition_number' => {
+                    'partitionNumber' => {
                       'type' => Optional[Integer],
                       'value' => undef
                     },
-                    'spread_domain' => {
+                    'spreadDomain' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
@@ -1226,7 +1226,7 @@ type Aws = TypeSet[{
                     }
                   },
                   functions => {
-                    'go_string' => Callable[
+                    'goString' => Callable[
                       [0, 0],
                       String],
                     'string' => Callable[
@@ -1240,13 +1240,13 @@ type Aws = TypeSet[{
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'prefix_list_id' => {
+                    'prefixListId' => {
                       'type' => Optional[String],
                       'value' => undef
                     }
                   },
                   functions => {
-                    'go_string' => Callable[
+                    'goString' => Callable[
                       [0, 0],
                       String],
                     'string' => Callable[
@@ -1256,17 +1256,17 @@ type Aws = TypeSet[{
                 },
                 ProductCode => {
                   attributes => {
-                    'product_code_id' => {
+                    'productCodeId' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'product_code_type' => {
+                    'productCodeType' => {
                       'type' => Optional[String],
                       'value' => undef
                     }
                   },
                   functions => {
-                    'go_string' => Callable[
+                    'goString' => Callable[
                       [0, 0],
                       String],
                     'string' => Callable[
@@ -1276,13 +1276,13 @@ type Aws = TypeSet[{
                 },
                 PropagatingVgw => {
                   attributes => {
-                    'gateway_id' => {
+                    'gatewayId' => {
                       'type' => Optional[String],
                       'value' => undef
                     }
                   },
                   functions => {
-                    'go_string' => Callable[
+                    'goString' => Callable[
                       [0, 0],
                       String],
                     'string' => Callable[
@@ -1292,39 +1292,39 @@ type Aws = TypeSet[{
                 },
                 Route => {
                   attributes => {
-                    'destination_cidr_block' => {
+                    'destinationCidrBlock' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'destination_ipv6_cidr_block' => {
+                    'destinationIpv6CidrBlock' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'destination_prefix_list_id' => {
+                    'destinationPrefixListId' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'egress_only_internet_gateway_id' => {
+                    'egressOnlyInternetGatewayId' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'gateway_id' => {
+                    'gatewayId' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'instance_id' => {
+                    'instanceId' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'instance_owner_id' => {
+                    'instanceOwnerId' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'nat_gateway_id' => {
+                    'natGatewayId' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'network_interface_id' => {
+                    'networkInterfaceId' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
@@ -1336,17 +1336,17 @@ type Aws = TypeSet[{
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'transit_gateway_id' => {
+                    'transitGatewayId' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'vpc_peering_connection_id' => {
+                    'vpcPeeringConnectionId' => {
                       'type' => Optional[String],
                       'value' => undef
                     }
                   },
                   functions => {
-                    'go_string' => Callable[
+                    'goString' => Callable[
                       [0, 0],
                       String],
                     'string' => Callable[
@@ -1357,24 +1357,24 @@ type Aws = TypeSet[{
                 RouteTable => {
                   attributes => {
                     'associations' => Array[Optional[RouteTableAssociation]],
-                    'owner_id' => {
+                    'ownerId' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'propagating_vgws' => Array[Optional[PropagatingVgw]],
-                    'route_table_id' => {
+                    'propagatingVgws' => Array[Optional[PropagatingVgw]],
+                    'routeTableId' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
                     'routes' => Array[Optional[Route]],
                     'tags' => Array[Optional[Tag]],
-                    'vpc_id' => {
+                    'vpcId' => {
                       'type' => Optional[String],
                       'value' => undef
                     }
                   },
                   functions => {
-                    'go_string' => Callable[
+                    'goString' => Callable[
                       [0, 0],
                       String],
                     'string' => Callable[
@@ -1388,21 +1388,21 @@ type Aws = TypeSet[{
                       'type' => Optional[Boolean],
                       'value' => undef
                     },
-                    'route_table_association_id' => {
+                    'routeTableAssociationId' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'route_table_id' => {
+                    'routeTableId' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'subnet_id' => {
+                    'subnetId' => {
                       'type' => Optional[String],
                       'value' => undef
                     }
                   },
                   functions => {
-                    'go_string' => Callable[
+                    'goString' => Callable[
                       [0, 0],
                       String],
                     'string' => Callable[
@@ -1416,28 +1416,28 @@ type Aws = TypeSet[{
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'group_id' => {
+                    'groupId' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'group_name' => {
+                    'groupName' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'ip_permissions' => Array[Optional[IpPermission]],
-                    'ip_permissions_egress' => Array[Optional[IpPermission]],
-                    'owner_id' => {
+                    'ipPermissions' => Array[Optional[IpPermission]],
+                    'ipPermissionsEgress' => Array[Optional[IpPermission]],
+                    'ownerId' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
                     'tags' => Array[Optional[Tag]],
-                    'vpc_id' => {
+                    'vpcId' => {
                       'type' => Optional[String],
                       'value' => undef
                     }
                   },
                   functions => {
-                    'go_string' => Callable[
+                    'goString' => Callable[
                       [0, 0],
                       String],
                     'string' => Callable[
@@ -1457,7 +1457,7 @@ type Aws = TypeSet[{
                     }
                   },
                   functions => {
-                    'go_string' => Callable[
+                    'goString' => Callable[
                       [0, 0],
                       String],
                     'string' => Callable[
@@ -1467,36 +1467,36 @@ type Aws = TypeSet[{
                 },
                 Subnet => {
                   attributes => {
-                    'assign_ipv6_address_on_creation' => {
+                    'assignIpv6AddressOnCreation' => {
                       'type' => Optional[Boolean],
                       'value' => undef
                     },
-                    'availability_zone' => {
+                    'availabilityZone' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'availability_zone_id' => {
+                    'availabilityZoneId' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'available_ip_address_count' => {
+                    'availableIpAddressCount' => {
                       'type' => Optional[Integer],
                       'value' => undef
                     },
-                    'cidr_block' => {
+                    'cidrBlock' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'default_for_az' => {
+                    'defaultForAz' => {
                       'type' => Optional[Boolean],
                       'value' => undef
                     },
-                    'ipv6_cidr_block_association_set' => Array[Optional[SubnetIpv6CidrBlockAssociation]],
-                    'map_public_ip_on_launch' => {
+                    'ipv6CidrBlockAssociationSet' => Array[Optional[SubnetIpv6CidrBlockAssociation]],
+                    'mapPublicIpOnLaunch' => {
                       'type' => Optional[Boolean],
                       'value' => undef
                     },
-                    'owner_id' => {
+                    'ownerId' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
@@ -1504,22 +1504,22 @@ type Aws = TypeSet[{
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'subnet_arn' => {
+                    'subnetArn' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'subnet_id' => {
+                    'subnetId' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
                     'tags' => Array[Optional[Tag]],
-                    'vpc_id' => {
+                    'vpcId' => {
                       'type' => Optional[String],
                       'value' => undef
                     }
                   },
                   functions => {
-                    'go_string' => Callable[
+                    'goString' => Callable[
                       [0, 0],
                       String],
                     'string' => Callable[
@@ -1533,13 +1533,13 @@ type Aws = TypeSet[{
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'status_message' => {
+                    'statusMessage' => {
                       'type' => Optional[String],
                       'value' => undef
                     }
                   },
                   functions => {
-                    'go_string' => Callable[
+                    'goString' => Callable[
                       [0, 0],
                       String],
                     'string' => Callable[
@@ -1549,21 +1549,21 @@ type Aws = TypeSet[{
                 },
                 SubnetIpv6CidrBlockAssociation => {
                   attributes => {
-                    'association_id' => {
+                    'associationId' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'ipv6_cidr_block' => {
+                    'ipv6CidrBlock' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'ipv6_cidr_block_state' => {
+                    'ipv6CidrBlockState' => {
                       'type' => Optional[SubnetCidrBlockState],
                       'value' => undef
                     }
                   },
                   functions => {
-                    'go_string' => Callable[
+                    'goString' => Callable[
                       [0, 0],
                       String],
                     'string' => Callable[
@@ -1583,7 +1583,7 @@ type Aws = TypeSet[{
                     }
                   },
                   functions => {
-                    'go_string' => Callable[
+                    'goString' => Callable[
                       [0, 0],
                       String],
                     'string' => Callable[
@@ -1597,33 +1597,33 @@ type Aws = TypeSet[{
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'group_id' => {
+                    'groupId' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'group_name' => {
+                    'groupName' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'peering_status' => {
+                    'peeringStatus' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'user_id' => {
+                    'userId' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'vpc_id' => {
+                    'vpcId' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'vpc_peering_connection_id' => {
+                    'vpcPeeringConnectionId' => {
                       'type' => Optional[String],
                       'value' => undef
                     }
                   },
                   functions => {
-                    'go_string' => Callable[
+                    'goString' => Callable[
                       [0, 0],
                       String],
                     'string' => Callable[
@@ -1633,25 +1633,25 @@ type Aws = TypeSet[{
                 },
                 Vpc => {
                   attributes => {
-                    'cidr_block' => {
+                    'cidrBlock' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'cidr_block_association_set' => Array[Optional[VpcCidrBlockAssociation]],
-                    'dhcp_options_id' => {
+                    'cidrBlockAssociationSet' => Array[Optional[VpcCidrBlockAssociation]],
+                    'dhcpOptionsId' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'instance_tenancy' => {
+                    'instanceTenancy' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'ipv6_cidr_block_association_set' => Array[Optional[VpcIpv6CidrBlockAssociation]],
-                    'is_default' => {
+                    'ipv6CidrBlockAssociationSet' => Array[Optional[VpcIpv6CidrBlockAssociation]],
+                    'isDefault' => {
                       'type' => Optional[Boolean],
                       'value' => undef
                     },
-                    'owner_id' => {
+                    'ownerId' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
@@ -1660,13 +1660,13 @@ type Aws = TypeSet[{
                       'value' => undef
                     },
                     'tags' => Array[Optional[Tag]],
-                    'vpc_id' => {
+                    'vpcId' => {
                       'type' => Optional[String],
                       'value' => undef
                     }
                   },
                   functions => {
-                    'go_string' => Callable[
+                    'goString' => Callable[
                       [0, 0],
                       String],
                     'string' => Callable[
@@ -1676,21 +1676,21 @@ type Aws = TypeSet[{
                 },
                 VpcCidrBlockAssociation => {
                   attributes => {
-                    'association_id' => {
+                    'associationId' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'cidr_block' => {
+                    'cidrBlock' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'cidr_block_state' => {
+                    'cidrBlockState' => {
                       'type' => Optional[VpcCidrBlockState],
                       'value' => undef
                     }
                   },
                   functions => {
-                    'go_string' => Callable[
+                    'goString' => Callable[
                       [0, 0],
                       String],
                     'string' => Callable[
@@ -1704,13 +1704,13 @@ type Aws = TypeSet[{
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'status_message' => {
+                    'statusMessage' => {
                       'type' => Optional[String],
                       'value' => undef
                     }
                   },
                   functions => {
-                    'go_string' => Callable[
+                    'goString' => Callable[
                       [0, 0],
                       String],
                     'string' => Callable[
@@ -1720,21 +1720,21 @@ type Aws = TypeSet[{
                 },
                 VpcIpv6CidrBlockAssociation => {
                   attributes => {
-                    'association_id' => {
+                    'associationId' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'ipv6_cidr_block' => {
+                    'ipv6CidrBlock' => {
                       'type' => Optional[String],
                       'value' => undef
                     },
-                    'ipv6_cidr_block_state' => {
+                    'ipv6CidrBlockState' => {
                       'type' => Optional[VpcCidrBlockState],
                       'value' => undef
                     }
                   },
                   functions => {
-                    'go_string' => Callable[
+                    'goString' => Callable[
                       [0, 0],
                       String],
                     'string' => Callable[
@@ -1816,19 +1816,19 @@ type Aws = TypeSet[{
                   'type' => String,
                   'value' => ''
                 },
-                'availability_zone' => {
+                'availabilityZone' => {
                   'type' => String,
                   'value' => ''
                 },
-                'group_name' => {
+                'groupName' => {
                   'type' => String,
                   'value' => ''
                 },
-                'host_id' => {
+                'hostId' => {
                   'type' => String,
                   'value' => ''
                 },
-                'spread_domain' => {
+                'spreadDomain' => {
                   'type' => String,
                   'value' => ''
                 },
@@ -1844,7 +1844,7 @@ type Aws = TypeSet[{
                   'type' => String,
                   'value' => ''
                 },
-                'prefix_list_id' => {
+                'prefixListId' => {
                   'type' => String,
                   'value' => ''
                 }
@@ -1852,11 +1852,11 @@ type Aws = TypeSet[{
             },
             ProductCode => {
               attributes => {
-                'product_code_id' => {
+                'productCodeId' => {
                   'type' => String,
                   'value' => ''
                 },
-                'product_code_type' => {
+                'productCodeType' => {
                   'type' => String,
                   'value' => ''
                 }
@@ -1864,7 +1864,7 @@ type Aws = TypeSet[{
             },
             PropagatingVgw => {
               attributes => {
-                'gateway_id' => String
+                'gatewayId' => String
               }
             },
             RoleHandler => {
@@ -1880,39 +1880,39 @@ type Aws = TypeSet[{
             },
             Route => {
               attributes => {
-                'destination_cidr_block' => {
+                'destinationCidrBlock' => {
                   'type' => String,
                   'value' => ''
                 },
-                'destination_ipv6_cidr_block' => {
+                'destinationIpv6CidrBlock' => {
                   'type' => String,
                   'value' => ''
                 },
-                'destination_prefix_list_id' => {
+                'destinationPrefixListId' => {
                   'type' => String,
                   'value' => ''
                 },
-                'egress_only_internet_gateway_id' => {
+                'egressOnlyInternetGatewayId' => {
                   'type' => String,
                   'value' => ''
                 },
-                'gateway_id' => {
+                'gatewayId' => {
                   'type' => String,
                   'value' => ''
                 },
-                'instance_id' => {
+                'instanceId' => {
                   'type' => String,
                   'value' => ''
                 },
-                'instance_owner_id' => {
+                'instanceOwnerId' => {
                   'type' => String,
                   'value' => ''
                 },
-                'nat_gateway_id' => {
+                'natGatewayId' => {
                   'type' => String,
                   'value' => ''
                 },
-                'network_interface_id' => {
+                'networkInterfaceId' => {
                   'type' => String,
                   'value' => ''
                 },
@@ -1924,7 +1924,7 @@ type Aws = TypeSet[{
                   'type' => String,
                   'value' => ''
                 },
-                'vpc_peering_connection_id' => {
+                'vpcPeeringConnectionId' => {
                   'type' => String,
                   'value' => ''
                 },
@@ -1934,17 +1934,17 @@ type Aws = TypeSet[{
             RouteTable => {
               annotations => {
                 Lyra::Resource => {
-                  'immutable_attributes' => ['tags'],
-                  'provided_attributes' => ['route_table_id', 'routes']
+                  'immutableAttributes' => ['tags'],
+                  'providedAttributes' => ['routeTableId', 'routes']
                 }
               },
               attributes => {
-                'vpc_id' => String,
-                'route_table_id' => {
+                'vpcId' => String,
+                'routeTableId' => {
                   'type' => Optional[String],
                   'value' => undef
                 },
-                'subnet_id' => {
+                'subnetId' => {
                   'type' => Optional[String],
                   'value' => undef
                 },
@@ -1956,7 +1956,7 @@ type Aws = TypeSet[{
                   'type' => Array[RouteTableAssociation],
                   'value' => []
                 },
-                'propagating_vgws' => {
+                'propagatingVgws' => {
                   'type' => Array[PropagatingVgw],
                   'value' => []
                 },
@@ -1966,12 +1966,12 @@ type Aws = TypeSet[{
             RouteTableAssociation => {
               attributes => {
                 'main' => Boolean,
-                'route_table_association_id' => {
+                'routeTableAssociationId' => {
                   'type' => Optional[String],
                   'value' => undef
                 },
-                'route_table_id' => String,
-                'subnet_id' => String
+                'routeTableId' => String,
+                'subnetId' => String
               }
             },
             RouteTableHandler => {
@@ -1988,24 +1988,24 @@ type Aws = TypeSet[{
             SecurityGroup => {
               attributes => {
                 'description' => String,
-                'group_name' => String,
-                'vpc_id' => {
+                'groupName' => String,
+                'vpcId' => {
                   'type' => String,
                   'value' => ''
                 },
-                'group_id' => {
+                'groupId' => {
                   'type' => String,
                   'value' => ''
                 },
-                'ip_permissions' => {
+                'ipPermissions' => {
                   'type' => Array[IpPermission],
                   'value' => []
                 },
-                'ip_permissions_egress' => {
+                'ipPermissionsEgress' => {
                   'type' => Array[IpPermission],
                   'value' => []
                 },
-                'owner_id' => {
+                'ownerId' => {
                   'type' => String,
                   'value' => ''
                 },
@@ -2041,28 +2041,28 @@ type Aws = TypeSet[{
             Subnet => {
               annotations => {
                 Lyra::Resource => {
-                  'immutable_attributes' => ['tags'],
-                  'provided_attributes' => ['subnet_id', 'availability_zone', 'available_ip_address_count']
+                  'immutableAttributes' => ['tags'],
+                  'providedAttributes' => ['subnetId', 'availabilityZone', 'availableIpAddressCount']
                 }
               },
               attributes => {
-                'vpc_id' => String,
-                'cidr_block' => String,
-                'availability_zone' => {
+                'vpcId' => String,
+                'cidrBlock' => String,
+                'availabilityZone' => {
                   'type' => Optional[String],
                   'value' => undef
                 },
-                'ipv6_cidr_block' => String,
+                'ipv6CidrBlock' => String,
                 'tags' => Hash[String, String],
-                'assign_ipv6_address_on_creation' => Boolean,
-                'map_public_ip_on_launch' => Boolean,
-                'available_ip_address_count' => {
+                'assignIpv6AddressOnCreation' => Boolean,
+                'mapPublicIpOnLaunch' => Boolean,
+                'availableIpAddressCount' => {
                   'type' => Optional[Integer],
                   'value' => undef
                 },
-                'default_for_az' => Boolean,
+                'defaultForAz' => Boolean,
                 'state' => String,
-                'subnet_id' => {
+                'subnetId' => {
                   'type' => Optional[String],
                   'value' => undef
                 }
@@ -2085,27 +2085,27 @@ type Aws = TypeSet[{
                   'type' => String,
                   'value' => ''
                 },
-                'group_id' => {
+                'groupId' => {
                   'type' => String,
                   'value' => ''
                 },
-                'group_name' => {
+                'groupName' => {
                   'type' => String,
                   'value' => ''
                 },
-                'peering_status' => {
+                'peeringStatus' => {
                   'type' => String,
                   'value' => ''
                 },
-                'user_id' => {
+                'userId' => {
                   'type' => String,
                   'value' => ''
                 },
-                'vpc_id' => {
+                'vpcId' => {
                   'type' => String,
                   'value' => ''
                 },
-                'vpc_peering_connection_id' => {
+                'vpcPeeringConnectionId' => {
                   'type' => String,
                   'value' => ''
                 }
@@ -2124,22 +2124,22 @@ type Aws = TypeSet[{
             },
             Vpc => {
               attributes => {
-                'amazon_provided_ipv6_cidr_block' => Boolean,
-                'cidr_block' => String,
-                'instance_tenancy' => {
+                'amazonProvidedIpv6CidrBlock' => Boolean,
+                'cidrBlock' => String,
+                'instanceTenancy' => {
                   'type' => Optional[String],
                   'value' => 'default'
                 },
-                'enable_dns_hostnames' => Boolean,
-                'enable_dns_support' => Boolean,
+                'enableDnsHostnames' => Boolean,
+                'enableDnsSupport' => Boolean,
                 'tags' => Hash[String, String],
-                'vpc_id' => {
+                'vpcId' => {
                   'type' => Optional[String],
                   'value' => undef
                 },
-                'is_default' => Boolean,
+                'isDefault' => Boolean,
                 'state' => String,
-                'dhcp_options_id' => {
+                'dhcpOptionsId' => {
                   'type' => Optional[String],
                   'value' => undef
                 }
