@@ -1,20 +1,22 @@
 package resource
 
 import (
+	"github.com/davecgh/go-spew/spew"
 	"github.com/hashicorp/go-hclog"
 )
 
 // Person represents a human
 type Person struct {
-	Name    string   `puppet:"type=>String, value=>''"`
-	Age     int64    `puppet:"type=>Integer, value=>0"`
-	Human   bool     `puppet:"type=>Boolean, value=>false"`
-	Address *Address `puppet:"type=>Optional[Example::Address], value=>undef"`
+	Name      string `puppet:"type=>String, value=>''"`
+	Age       int64  `puppet:"type=>Integer, value=>0"`
+	Human     bool   `puppet:"type=>Boolean, value=>false"`
+	Addresses *[]Address
 }
 
 // Address type
 type Address struct {
-	LineOne string `puppet:"type=>String, value=>''"`
+	Annotations *map[string]string
+	LineOne     string `puppet:"type=>String, value=>''"`
 }
 
 //OwnerRes type to show parent in parent-child relationships
@@ -35,7 +37,11 @@ type PersonHandler struct{}
 
 // Create a new person resource
 func (*PersonHandler) Create(desiredState *Person) (*Person, string, error) {
-	hclog.Default().Debug("Creating person", "desiredState", desiredState)
+	log := hclog.Default()
+	if log.IsDebug() {
+		log.Debug("Creating person", "desiredState", spew.Sdump(desiredState))
+	}
+
 	return desiredState, "12345", nil
 }
 
@@ -50,7 +56,10 @@ func (*PersonHandler) Read(externalID string) (*Person, error) {
 
 // Update an existing persn resource
 func (*PersonHandler) Update(externalID string, desiredState *Person) *Person {
-	hclog.Default().Debug("Updating person", "externalID", externalID, "desiredState", desiredState)
+	log := hclog.Default()
+	if log.IsDebug() {
+		log.Debug("Updating person", "externalID", externalID, "desiredState", spew.Sdump(desiredState))
+	}
 	desiredState.Age = 33
 	return desiredState
 }

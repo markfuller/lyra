@@ -10,6 +10,10 @@ type Example = TypeSet[{
   types => {
     Address => {
       attributes => {
+        'annotations' => {
+          'type' => Optional[Hash[String, String]],
+          'value' => undef
+        },
         'lineOne' => {
           'type' => String,
           'value' => ''
@@ -75,8 +79,8 @@ type Example = TypeSet[{
           'type' => Boolean,
           'value' => false
         },
-        'address' => {
-          'type' => Optional[Address],
+        'addresses' => {
+          'type' => Optional[Array[Address]],
           'value' => undef
         }
       }

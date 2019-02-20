@@ -10,6 +10,10 @@ workflow sample {
     age => 28,
     name => 'Bob',
     human => false,
+    addresses => [Example::Address(
+      lineOne => '30 East 60th Street',
+      # annotations => 
+    )]
   }
 }
 
