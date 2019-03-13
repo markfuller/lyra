@@ -275,6 +275,12 @@ func (l *Loader) findFiles(glob string) []string {
 
 func (l *Loader) loadLiveMetadataFromPlugin(c px.Context, cmd string, cmdArgs ...string) error {
 	// FIXME Load should probably handle the px.Context
+	if cmdArgs == nil {
+		cmdArgs = []string{}
+	}
+	if hclog.Default().IsDebug() {
+		cmdArgs = append(cmdArgs, "--debug", "true")
+	}
 	serviceCmd := exec.CommandContext(c, cmd, cmdArgs...)
 	service, err := grpc.Load(serviceCmd, nil)
 	if err != nil {
