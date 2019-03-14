@@ -13,7 +13,6 @@ import (
 )
 
 var (
-	debug    bool
 	loglevel string
 )
 
@@ -31,8 +30,7 @@ func NewRootCmd() *cobra.Command {
 		Version:          fmt.Sprintf("%v", version.Get()),
 	}
 
-	cmd.PersistentFlags().BoolVar(&debug, "debug", false, gotext.Get("Sets log level to debug"))
-	cmd.PersistentFlags().StringVar(&loglevel, "loglevel", "", gotext.Get("Set log level to fatal, error, warn, info or debug"))
+	cmd.PersistentFlags().StringVar(&loglevel, "loglevel", "", gotext.Get("Set log level to error, warn, info, debug or trace"))
 
 	cmd.SetHelpTemplate(ansi.Blue + version.LogoFiglet + ansi.Reset + ui.HelpTemplate)
 	cmd.SetUsageTemplate(ui.UsageTemplate)
@@ -56,9 +54,6 @@ func runHelp(cmd *cobra.Command, args []string) {
 }
 
 func initialiseTool(cmd *cobra.Command, args []string) {
-	if debug {
-		loglevel = "debug"
-	}
 	spec := logger.Spec{
 		Name:   "lyra",
 		Level:  loglevel,

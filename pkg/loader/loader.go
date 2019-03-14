@@ -2,6 +2,7 @@ package loader
 
 import (
 	"fmt"
+	"github.com/lyraproj/lyra/pkg/logger"
 	"github.com/lyraproj/puppet-workflow/puppetwf"
 	"os"
 	"os/exec"
@@ -278,9 +279,11 @@ func (l *Loader) loadLiveMetadataFromPlugin(c px.Context, cmd string, cmdArgs ..
 	if cmdArgs == nil {
 		cmdArgs = []string{}
 	}
-	if hclog.Default().IsDebug() {
-		cmdArgs = append(cmdArgs, "--debug", "true")
+	level := logger.Level()
+	if len(level) > 0 {
+		cmdArgs = append(cmdArgs, "--loglevel", level)
 	}
+
 	serviceCmd := exec.CommandContext(c, cmd, cmdArgs...)
 	service, err := grpc.Load(serviceCmd, nil)
 	if err != nil {

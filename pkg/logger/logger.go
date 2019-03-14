@@ -31,6 +31,7 @@ func Get() hclog.Logger {
 // Initialise the Logger
 func Initialise(spec Spec) hclog.Logger {
 	once.Do(func() {
+
 		hclog.DefaultOptions = &hclog.LoggerOptions{
 			Name:            spec.Name,
 			Level:           hclog.Level(logsDisabled),
@@ -38,7 +39,11 @@ func Initialise(spec Spec) hclog.Logger {
 			IncludeLocation: spec.IncludeLocation,
 		}
 		if len(spec.Level) > 0 {
-			hclog.DefaultOptions.Level = hclog.LevelFromString(spec.Level)
+			ll := hclog.LevelFromString(spec.Level)
+			if ll != hclog.NoLevel {
+				hclog.DefaultOptions.Level = ll
+				level = spec.Level
+			}
 		}
 		if spec.Output != nil {
 			hclog.DefaultOptions.Output = spec.Output
@@ -47,4 +52,11 @@ func Initialise(spec Spec) hclog.Logger {
 		logger = l
 	})
 	return logger
+}
+
+var level string
+
+// Level returns the log level as a string
+func Level() string {
+	return level
 }
