@@ -1,0 +1,14 @@
+sample3:
+  typespace: example
+  output:
+    long_name: String
+    person_age: Integer
+  activities:
+    person:
+      output:
+        long_name: name
+        person_age: age
+      state:
+        age: 25
+        name: Ann
+        human: true
