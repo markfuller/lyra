@@ -5,12 +5,18 @@ parameters:
   helm_chart:
     type: String
     value: "stable/wordpress"
+  helm_values:
+    type: String[]
+    value: 
+      - wordpressUsername=somebodynotyou
+        wordpressPassword=Pwordy2
 returns: [helm_output]
 steps:
   helm:
     parameters:
       helm_release_name: name
       helm_chart: chart
+      helm_values: values 
     returns:
       helm_output: output
     reference: helm_go

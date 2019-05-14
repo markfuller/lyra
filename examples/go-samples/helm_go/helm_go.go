@@ -2,6 +2,7 @@
 package main
 
 import (
+	"strings"
 	"fmt"
 	"os/exec"
 
@@ -11,7 +12,8 @@ import (
 
 type helmIn struct {
 	Name string
-	Chart string	
+	Chart string
+	Values []string
 	Namespace *string
 }
 
@@ -21,17 +23,31 @@ type helmOut struct {
 
 func helmInstall(in helmIn) helmOut {
 	log := hclog.Default()
-	log.Debug("helmInstall entered", "in", in)
 	namespace := "default"
 	if in.Namespace != nil {
 		namespace = *in.Namespace
 	}
-	cmd := exec.Command("helm", "install", 
+	args := []string {
+		"install", 
 		"--namespace",
 		namespace,
 		"--name", 
 		in.Name,
-		in.Chart)
+		in.Chart,
+
+	}
+	if len(in.Values) > 0 {
+		args = append(args, "--set")
+
+		//HACK: unsure why this Replace is needed but strings.Join seems to add space instead
+		x := strings.Replace(strings.Join(in.Values, ",")," ", ",", -1)
+		// x := strings.Join(in.Values, ",")
+		args = append(args, x)
+	}
+	cmd := exec.Command("helm", args...)
+
+	log.Debug("about to run command", "cmd", cmd)
+
 	out, err := cmd.Output()
 	output := fmt.Sprintf("%s", out)
 	if err != nil {
