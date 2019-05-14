@@ -1,6 +1,16 @@
+parameters:
+  helm_release_name:
+    type: String
+    value: "wordpress"
+  helm_chart:
+    type: String
+    value: "stable/wordpress"
 returns: [helm_output]
 steps:
-  wordpress:
+  helm:
+    parameters:
+      helm_release_name: name
+      helm_chart: chart
     returns:
       helm_output: output
-    reference: command_go
+    reference: helm_go
