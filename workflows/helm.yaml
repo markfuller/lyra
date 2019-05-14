@@ -1,0 +1,6 @@
+returns: [helm_output]
+steps:
+  wordpress:
+    returns:
+      helm_output: output
+    reference: command_go
