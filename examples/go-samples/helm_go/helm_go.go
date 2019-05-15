@@ -13,7 +13,7 @@ import (
 type helmIn struct {
 	Name string
 	Chart string
-	Values []string
+	Overrides []string
 	Namespace *string
 }
 
@@ -36,12 +36,12 @@ func helmInstall(in helmIn) helmOut {
 		in.Chart,
 
 	}
-	if len(in.Values) > 0 {
+	if len(in.Overrides) > 0 {
 		args = append(args, "--set")
 
 		//HACK: unsure why this Replace is needed but strings.Join seems to add space instead
-		x := strings.Replace(strings.Join(in.Values, ",")," ", ",", -1)
-		// x := strings.Join(in.Values, ",")
+		x := strings.Replace(strings.Join(in.Overrides, ",")," ", ",", -1)
+		// x := strings.Join(in.Overrides, ",")
 		args = append(args, x)
 	}
 	cmd := exec.Command("helm", args...)
