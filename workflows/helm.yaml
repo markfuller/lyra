@@ -1,9 +1,9 @@
-# parameters:
-  # helm_overrides:
-  #   type: String[]
-  #   value: 
-  #     - wordpressUsername=somebodynotyou
-  #       wordpressPassword=Pwordy2
+parameters:
+  helm_overrides:
+    type: String[]
+    value: 
+      - "wordpressUsername=somebodynotyou"
+      - "wordpressPassword=Pwordy4"
 returns: [helm_output]
 steps:
   helm:
@@ -11,8 +11,12 @@ steps:
       name: {value: "wordpress"}
       chart: {value: "stable/wordpress"}
       namespace: {value: null}
-      # helm_overrides: overrides
-      overrides: {value: ['wordpressUsername=somebodynotyou', 'wordpressPassword=Pwordy3']}
+      
+      # this does not work
+      helm_overrides: overrides
+
+      # this works
+      # overrides: {value: ['wordpressUsername=somebodynotyou', 'wordpressPassword=Pwordy3']}
     returns:
       helm_output: output
     reference: helm_go
