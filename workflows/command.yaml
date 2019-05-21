@@ -1,0 +1,9 @@
+returns: [command_output]
+steps:
+  command:
+    parameters:
+      # sample command checks the go version
+      command: {value: "go version"}
+    returns:
+      command_output: output
+    call: command_go
