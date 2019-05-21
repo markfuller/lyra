@@ -2,8 +2,8 @@ returns: [command_output]
 steps:
   command:
     parameters:
-      # sample command checks the go version
-      command: {value: "go version"}
+      # sample command checks the go version is 1.11.4 or later
+      command: {value: "go version | grep -E \"'go[2-9]|go1.1[2-9]|go1.11.[4-9]'\""}
     returns:
       command_output: output
     call: command_go

@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"os/exec"
-	"strings"
 
 	"github.com/hashicorp/go-hclog"
 	"github.com/lyraproj/servicesdk/lang/go/lyra"
@@ -19,11 +18,10 @@ type cmdOut struct {
 
 func runCommand(in cmdIn) cmdOut {
 	log := hclog.Default()
-	tokens := strings.Split(in.Command, " ")
-	cmd := exec.Command(tokens[0])
-	if len(tokens) > 1 {
-		cmd = exec.Command(tokens[0], tokens[1:]...)
-	}
+
+	//run bash -c <in.Command> in a not very pretty way
+	args := append([]string{"-c", in.Command})
+	cmd := exec.Command("bash", args...)
 
 	log.Debug("about to run command", "cmd", cmd)
 
