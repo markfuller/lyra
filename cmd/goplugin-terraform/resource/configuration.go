@@ -1,14 +1,14 @@
 package resource
 
 import (
-	"bufio"
 	"bytes"
 	"fmt"
 	"os/exec"
-	"strings"
 
 	"github.com/google/uuid"
 	"github.com/hashicorp/go-hclog"
+	"github.com/lyraproj/pcore/px"
+	"github.com/lyraproj/pcore/serialization"
 )
 
 // Config is a terraform configuration identified by a working directory
@@ -60,13 +60,13 @@ func (*ConfigHandler) Delete(externalID string) error {
 	return nil
 }
 
-func apply(in *Config) map[string]string {
+func apply(in *Config) px.Value {
 	log := hclog.Default()
 	log.Debug("apply entered", "in", in)
 
 	_ = mustRun(in.WorkingDir, "terraform", "init")
 	_ = mustRun(in.WorkingDir, "terraform", "apply", "-auto-approve")
-	out := mustRun(in.WorkingDir, "terraform", "output")
+	out := mustRun(in.WorkingDir, "terraform", "output", "-json")
 	m := convertOutput(out)
 	return m
 }
@@ -87,17 +87,15 @@ func mustRun(dir string, name string, arg ...string) []byte {
 
 // convertOutput converts the passed byte array to a map of strings to strings
 // expected format of input is that of `terraform output` e.g zero or more lines in format `a = b`
-func convertOutput(b []byte) map[string]string {
-	scanner := bufio.NewScanner(bytes.NewReader(b))
-	m := make(map[string]string)
-	for scanner.Scan() {
-		s := scanner.Text()
-		tokens := strings.Split(s, "=")
-		key := strings.Trim(tokens[0], " ")
-		value := strings.Trim(tokens[1], " ")
-		m[key] = value
+func convertOutput(b []byte) px.Value {
+	c := px.NewCollector()
+	serialization.JsonToData("terraform output", bytes.NewReader(b), c)
+	if hash, ok := c.PopLast().(px.OrderedMap); ok {
+		if v, ok := hash.Get4(`value`); ok {
+			return v
+		}
 	}
-	return m
+	return px.Undef
 }
 
 func extID(r Config) string {
