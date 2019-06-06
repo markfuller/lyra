@@ -1,21 +1,17 @@
-returns: [tf_out]
+parameters:
+  tags:
+    type: Hash[String,String]
+    lookup: aws.tags
+returns: [tags]
 steps:
-  config:
-    returns:
-      tf_out: output
-    Terraform::Config:  
-      workingDir: examples/go-samples/terraform_go/tfroot
   spew:
     parameters:
-      tf_out: it
-    call: spewer
-  spew2:
-    parameters:
-      # how could we use just the value of $output.rgId
-      # $tf_out.rgId: it #value '$tf_out.rgId' is never produced
-      # tf_out.rgId: it #value 'tf_out.rgId' is never produced
-      # $tf_out: it #value '$tf_out' is never produced
-      it: # put it in a map
-        value:
-          anything: $tf_out.rgId
+      it: {value: $tags.created_by} # target - does not work
+      # it: {value: $tags} # also does not work
+      # tags: it # this works
+
+      # could also do the following
+      # it:
+      #   value:
+      #     somekey: $tags.created_by
     call: spewer
